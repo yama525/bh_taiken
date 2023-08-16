@@ -11,7 +11,7 @@ $(document).ready(async function() {
       console.log(object)
 
       // ①コメントを外して名前を取得してみよう
-      const pokemonName = data.name
+      // const pokemonName = 
 
       // ②画像のURLを取得してみよう
       // const pokemonImage = 
