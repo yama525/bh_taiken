@@ -1,6 +1,6 @@
 $(document).ready(async function() {
   
-  // ①PokeAPI の URL を取得
+  // PokeAPI の URL
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/1";
   
   // APIからポケモンの情報を取得する
@@ -8,23 +8,22 @@ $(document).ready(async function() {
     try {
       const data = await fetchData(apiUrl);
 
-      // ②データの中身を見てみよう
       console.log(data);
 
-      // ③コメントを外して名前を取得してみよう
+      // ①コメントを外して名前を取得してみよう
       const pokemonName = data.name;
 
-      // ④画像のURLを取得してみよう
+      // ②画像のURLを取得してみよう
       const pokemonImage = data.sprites.front_default;
 
       const listItem = $("<p>").text(pokemonName);
 
-      // ④コメントを外そう
+      // ②コメントを外そう
       const listItem2 = $(`<img src="${pokemonImage}">`);
 
       $("#pokemon").append(listItem);
 
-      // ④コメントを外そう
+      // ②コメントを外そう
       $("#pokemon").append(listItem2);
 
     } catch (error) {
