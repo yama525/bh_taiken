@@ -6,12 +6,12 @@ $(document).ready(async function() {
   // APIからポケモンの情報を取得する
   async function getPokemonData() {
     try {
-      const data = await fetchData(apiUrl);
+      const object = await fetchData(apiUrl);
 
-      console.log(data)
+      console.log(object)
 
       // ①コメントを外して名前を取得してみよう
-      // const pokemonName = 
+      const pokemonName = data.name
 
       // ②画像のURLを取得してみよう
       // const pokemonImage = 

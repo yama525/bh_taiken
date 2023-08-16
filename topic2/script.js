@@ -6,12 +6,12 @@ $(document).ready(async function() {
   // APIからポケモンの情報を取得する
   async function getPokemonData() {
     try {
-      const dataList = await fetchData(apiUrl);
+      const objectList = await fetchData(apiUrl);
       // ----- ↓↓①繰り返し処理開始 -----
       
-        const data = await fetchData(dataList.results[i].url);
-        const pokemonName = data.name;
-        const pokemonImage = data.sprites.front_default;
+        const object = await fetchData(objectList.results[i].url);
+        const pokemonName = object.name;
+        const pokemonImage = object.sprites.front_default;
         const listItem = $("<p>").text(pokemonName);
         const listItem2 = $(`<img src="${pokemonImage}">`);
         $("#pokemonList").append(listItem);
