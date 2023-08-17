@@ -7,20 +7,27 @@ $(document).ready(async function() {
   async function getPokemonData() {
     try {
       const objectList = await fetchData(apiUrl);
+      
       // ----- ↓↓①繰り返し ここから囲う -----
-      // for(let i = 0; i < 20; i++)
-        const object = await fetchData(objectList.results[i].url);
-        const pokemonName = object.name;
-        const pokemonImage = object.sprites.front_default;
-        const listItem = $("<p>").text(pokemonName);
-        const listItem2 = $(`<img src="${pokemonImage}">`);
-        $("#pokemonList").append(listItem);
-        $("#pokemonList").append(listItem2);
+      // for(let i = 0; i < 10; i++)
+        displayPokemon(objectList, i);
       
       // ----- ↑↑①繰り返し ここまで囲う -----
+
     } catch (error) {
       $("#pokemonList").text("ポケモンのデータを取得できませんでした。");
     }
+  }
+
+  // ポケモンの名前と写真を画面へ表示
+  async function displayPokemon(objectList, i){
+    const object = await fetchData(objectList.results[i].url);
+    const pokemonName = object.name;
+    const pokemonImage = object.sprites.front_default;
+    const listItem = $("<p>").text(pokemonName);
+    const listItem2 = $(`<img src="${pokemonImage}">`);
+    $("#pokemonList").append(listItem);
+    $("#pokemonList").append(listItem2);
   }
 
   // API の URL からデータを取得する
