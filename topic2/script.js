@@ -7,8 +7,8 @@ $(document).ready(async function() {
   async function getPokemonData() {
     try {
       const objectList = await fetchData(apiUrl);
-      // ----- ↓↓①繰り返し処理開始 -----
-      
+      // ----- ↓↓①繰り返し ここから囲う -----
+      // for(let i = 0; i < 20; i++)
         const object = await fetchData(objectList.results[i].url);
         const pokemonName = object.name;
         const pokemonImage = object.sprites.front_default;
@@ -17,7 +17,7 @@ $(document).ready(async function() {
         $("#pokemonList").append(listItem);
         $("#pokemonList").append(listItem2);
       
-      // ----- ↑↑①繰り返し処理終了 -----
+      // ----- ↑↑①繰り返し ここまで囲う -----
     } catch (error) {
       $("#pokemonList").text("ポケモンのデータを取得できませんでした。");
     }
