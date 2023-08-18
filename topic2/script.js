@@ -5,19 +5,25 @@ $(document).ready(async function() {
 
   // APIからポケモンの情報を取得する
   async function getPokemonData() {
+
     try {
+
       const objectList = await fetchData(apiUrl);
       
-      // ----- ↓↓①繰り返し ここから囲う -----
+      // ----- ↓↓①繰り返し開始 コメントを外してここから囲う -----
       // for(let i = 0; i < 10; i++)
         displayPokemon(objectList, i);
       
-      // ----- ↑↑①繰り返し ここまで囲う -----
+      // ----- ↑↑①繰り返し終了 ここまで囲う -----
 
     } catch (error) {
+
       $("#pokemonList").text("ポケモンのデータを取得できませんでした。");
+
     }
+
   }
+
 
   // ポケモンの名前と写真を画面へ表示
   async function displayPokemon(objectList, i){
@@ -29,6 +35,7 @@ $(document).ready(async function() {
     $("#pokemonList").append(listItem);
     $("#pokemonList").append(listItem2);
   }
+
 
   // API の URL からデータを取得する
   function fetchData(apiUrl) {
@@ -46,6 +53,7 @@ $(document).ready(async function() {
     });
   }
 
+  
   // ページ読み込み時にポケモンの情報を取得する
   await getPokemonData();
 });

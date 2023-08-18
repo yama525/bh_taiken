@@ -5,7 +5,9 @@ $(document).ready(async function() {
   
   // APIからポケモンの情報を取得する
   async function getPokemonData() {
+
     try {
+
       const object = await fetchData(apiUrl);
 
       console.log(object)
@@ -27,9 +29,13 @@ $(document).ready(async function() {
       // $("#pokemon").append(listItem2);
 
     } catch (error) {
+
       $("#pokemon").text("ポケモンのデータを取得できませんでした。");
+
     }
+
   }
+
 
   // API の URL からデータを取得する
   function fetchData(apiUrl) {
@@ -47,6 +53,7 @@ $(document).ready(async function() {
     });
   }
 
+  
   // ページ読み込み時にポケモンの情報を取得する
   await getPokemonData();
 });
